@@ -28,6 +28,10 @@ public class IMDBMoviesGraph extends IMDBGraph {
         super(actorsFilename, actressesFilename);
     }
 
+    protected void handleData(String actor, String movie) {
+    	
+    }
+
     public Node getNodeByName(String name) {
         return null;
     }
