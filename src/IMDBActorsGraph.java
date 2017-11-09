@@ -7,8 +7,25 @@ import java.util.Collection;
  * @version 11/8/2017
  */
 public class IMDBActorsGraph extends IMDBGraph{
-    public IMDBActorsGraph(String actorsFilename, String actressesFilename) throws IOException {
+    private class ActorNode implements Node{
+        private String _name;
+        private ArrayList<Node> _movieList;
+        public MovieNode(String title){
+            _title = title;
+            _actorList = new Arraylist<Node>();
+        }
+        
+        public Collection<? extends Node> getNeighbors(){
+            return _movieList;
+        }
 
+        public String getName(){
+            return _name;
+        }
+    }
+
+    public IMDBActorsGraph(String actorsFilename, String actressesFilename) throws IOException {
+        super(actorsFilename, actressesFilename);
     }
 
     public Node getNodeByName(String name) {
