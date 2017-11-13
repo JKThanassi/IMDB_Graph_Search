@@ -27,8 +27,11 @@ public class GraphPartialTester {
 	 * Instantiates the actors and movies graphs
 	 */
 	public void setUp () throws IOException {
-		actorsGraph = new IMDBActorsGraph("actors_test.list", "actresses_test.list");
-		moviesGraph = new IMDBMoviesGraph("actors_test.list", "actresses_test.list");
+
+		actorsGraph = new IMDBActorsGraph("/Users/joseph/Google Drive/Documents/Term B/CS-210X/IMDB_Graph_Search/lists/actors_5000.list",
+				"/Users/joseph/Google Drive/Documents/Term B/CS-210X/IMDB_Graph_Search/lists/actresses_5000.list");
+		moviesGraph = new IMDBMoviesGraph("/Users/joseph/Google Drive/Documents/Term B/CS-210X/IMDB_Graph_Search/lists/actors_5000.list",
+				"/Users/joseph/Google Drive/Documents/Term B/CS-210X/IMDB_Graph_Search/lists/actresses_5000.list");
 		searchEngine = new GraphSearchEngineImpl();
 	}
 
@@ -46,7 +49,7 @@ public class GraphPartialTester {
 	 * Verifies that a specific movie has been parsed.
 	 */
 	public void testSpecificMovie () {
-		testFindNode(moviesGraph, "Movie1 (2001)");
+		testFindNode(moviesGraph, "Bye Bye Birdie (1963)");
 	}
 
 	@Test
@@ -54,7 +57,12 @@ public class GraphPartialTester {
 	 * Verifies that a specific actress has been parsed.
 	 */
 	public void testSpecificActress () {
-		testFindNode(actorsGraph, "Actress2");
+		testFindNode(actorsGraph, "Aaugad, Amina");
+	}
+
+	@Test
+	public void testSpecificActor(){
+		testFindNode(actorsGraph, "Aaker, Lee");
 	}
 
 	/**

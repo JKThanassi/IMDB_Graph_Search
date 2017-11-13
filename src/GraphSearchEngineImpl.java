@@ -5,7 +5,9 @@ import java.util.List;
  * @version 11/8/2017
  */
 public class GraphSearchEngineImpl implements GraphSearchEngine {
-    public GraphSearchEngineImpl(){}
+    public GraphSearchEngineImpl(){
+
+    }
 
 
 

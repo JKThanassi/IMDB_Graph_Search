@@ -14,11 +14,11 @@ public class IMDBActorsGraph extends IMDBGraph{
     }
 
     public Node getNodeByName(String name) {
-        return null;
+        return actorMap.get(name);
     }
 
 
     public Collection<? extends Node> getNodes() {
-    	return null;
+    	return actorMap.values();
     }
 }

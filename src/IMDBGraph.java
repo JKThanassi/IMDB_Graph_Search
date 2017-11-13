@@ -96,10 +96,10 @@ public abstract class IMDBGraph implements Graph {
 	    		String movie = "";
 	    		
 	    		//If the actor is different, change it
-    			if (firstTabIndex != 0)
-    				lastActor = line.substring(0, firstTabIndex);
-    			
-	    		movie = line.substring(lastTabIndex + 1, endIndex + 1);
+    			if (firstTabIndex > 0)
+					lastActor = line.substring(0, firstTabIndex);
+				if (lastTabIndex > 0 && endIndex > 0 && endIndex > lastTabIndex)
+					movie = line.substring(lastTabIndex + 1, endIndex + 1);
 	    		//If there are two in the array, then there is a new actor
 	    		//If there is only one, then the actor continues
 	    		handleData(lastActor, movie);
