@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import java.util.*;
 import java.io.*;
@@ -11,15 +12,18 @@ public class GraphPartialTester {
 	Graph actorsGraph, moviesGraph;
 	GraphSearchEngine searchEngine;
 
-	@Test(timeout=5000)
+	@Test
 	/**
 	 * Verifies that there is no shortest path between a specific and actor and actress.
 	 */
 	public void findShortestPath () {
-		final Node actor1 = actorsGraph.getNodeByName("Actor1");
-		final Node actress2 = actorsGraph.getNodeByName("Actress2");
+		final Node actor1 = actorsGraph.getNodeByName("Adara, Amirah");
+		final Node actress2 = actorsGraph.getNodeByName("Addams, Ava");
 		final List<Node> shortestPath = searchEngine.findShortestPath(actor1, actress2);
-		assertNull(shortestPath);  // there is no path between these people
+		//assertNull(shortestPath);  // there is no path between these people
+		for (Node n : shortestPath) {
+			System.out.println(n.getName());
+		}
 	}
 
 	@Before
@@ -28,10 +32,10 @@ public class GraphPartialTester {
 	 */
 	public void setUp () throws IOException {
 
-		actorsGraph = new IMDBActorsGraph("/Users/joseph/Google Drive/Documents/Term B/CS-210X/IMDB_Graph_Search/lists/actors_5000.list",
-				"/Users/joseph/Google Drive/Documents/Term B/CS-210X/IMDB_Graph_Search/lists/actresses_5000.list");
-		moviesGraph = new IMDBMoviesGraph("/Users/joseph/Google Drive/Documents/Term B/CS-210X/IMDB_Graph_Search/lists/actors_5000.list",
-				"/Users/joseph/Google Drive/Documents/Term B/CS-210X/IMDB_Graph_Search/lists/actresses_5000.list");
+		actorsGraph = new IMDBActorsGraph("E:\\Drive\\Documents\\Term B\\CS-210X\\IMDB_Graph_Search\\lists\\actors_100000.list",
+				"E:\\Drive\\Documents\\Term B\\CS-210X\\IMDB_Graph_Search\\lists\\actresses_100000.list");
+		moviesGraph = new IMDBMoviesGraph("E:\\Drive\\Documents\\Term B\\CS-210X\\IMDB_Graph_Search\\lists\\actors_100000.list",
+				"E:\\Drive\\Documents\\Term B\\CS-210X\\IMDB_Graph_Search\\lists\\actresses_100000.list");
 		searchEngine = new GraphSearchEngineImpl();
 	}
 
